@@ -1,9 +1,7 @@
-# Geometry Rush — P2P Party Manager for TurboWarp
+# Dropkick Games Party Service — P2P Party Manager for TurboWarp
 
 A high-performance **Peer-to-Peer (WebRTC) Party Manager** designed for **Geometry Rush**, built with:
-* **Fortnite White Card Lobby Aesthetics** (clean white backdrop, no black container borders).
 * **Burbank Big Condensed Bold** typography.
-* **Geometry Rush Button Banner** (`button.png` with cyan corner accents and blue background used for all buttons).
 * **Create or Join Party Screen** when opening or leaving a party.
 * **Party Chat System** (collapsible drawer with Burbank font, message history, chat input, and unread notification badge).
 * **Transformed Bottom Button**: The exit button on the party screen is replaced by the `CHAT` button!
