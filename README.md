@@ -37,7 +37,7 @@ A high-performance **Peer-to-Peer (WebRTC) Party Manager** designed for **Geomet
 
 1. **Create a GitHub Repository**:
    - Go to [GitHub](https://github.com) and click **New Repository**.
-   - Name it `GeometryRushParty` (or any name you like).
+   - Name it `MyGamePartyHandler` (or any name you like).
    - Set it to **Public** and click **Create repository**.
 
 2. **Upload the Files**:
