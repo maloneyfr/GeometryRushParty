@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Geometry Rush - 2-Player P2P Party Simulator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 14px;
+      background: #0b1120;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+    header {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .instructions {
+      font-size: 13px;
+      color: #94a3b8;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      flex: 1;
+      min-height: 0;
+    }
+    .client-card {
+      background: #1e293b;
+      border: 2px solid #334155;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .client-header {
+      background: #0f172a;
+      padding: 10px 14px;
+      border-bottom: 2px solid #334155;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .client-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: #f8fafc;
+    }
+    .badge {
+      background: #0284c7;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+    .iframe-wrapper {
+      flex: 1;
+      background: #111827;
+      position: relative;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎮 Geometry Rush — 2-Player P2P Party Simulator</h1>
+    <div class="instructions">
+      Click <strong>CREATE</strong> on Player 1, then enter the 6-letter Party Code on Player 2 and click <strong>JOIN</strong>!
+    </div>
+  </header>
+
+  <div class="grid">
+    
+    <!-- Player 1 -->
+    <div class="client-card">
+      <div class="client-header">
+        <span class="client-title">👤 Player 1: GeometryGod</span>
+        <span class="badge" id="p1Badge">P2P CLIENT</span>
+      </div>
+      <div class="iframe-wrapper">
+        <iframe id="p1Frame" src="party.html"></iframe>
+      </div>
+    </div>
+
+    <!-- Player 2 -->
+    <div class="client-card">
+      <div class="client-header">
+        <span class="client-title">👤 Player 2: RushRunner</span>
+        <span class="badge" id="p2Badge">P2P CLIENT</span>
+      </div>
+      <div class="iframe-wrapper">
+        <iframe id="p2Frame" src="party.html"></iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Initialize GameJolt usernames in each frame once loaded
+    function initFrames() {
+      const p1 = document.getElementById('p1Frame');
+      const p2 = document.getElementById('p2Frame');
+
+      p1.addEventListener('load', () => {
+        try {
+          if (p1.contentWindow && p1.contentWindow.PartyUI) {
+            p1.contentWindow.PartyUI.login('GeometryGod', 'token_god');
+          }
+        } catch(e){}
+      });
+
+      p2.addEventListener('load', () => {
+        try {
+          if (p2.contentWindow && p2.contentWindow.PartyUI) {
+            p2.contentWindow.PartyUI.login('RushRunner', 'token_runner');
+          }
+        } catch(e){}
+      });
+    }
+
+    initFrames();
+  </script>
+</body>
+</html>
